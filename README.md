@@ -40,7 +40,7 @@ end
 To authenticated for this example using curl you might do the following:
 
 ```bash
-curl --header "X-AUTH: Token: ValidToken" localhost:4000/hello
+curl --header "X-AUTH: Bearer ValidToken" localhost:4000/hello
 ```
 
 ## Configuration

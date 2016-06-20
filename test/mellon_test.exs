@@ -64,7 +64,7 @@ defmodule MellonTest do
   end
 
   defp auth_header(token) do
-    {"authorization", "Token: " <> token}
+    {"authorization", "Bearer " <> token}
   end
 
   test "missing argument" do
@@ -112,7 +112,7 @@ defmodule MellonTest do
   end
 
   test "unauthorized for wrong header" do
-    conn = call(TestPlug, [{"WRONGHEADER", "Token: VALIDTOKEN"}])
+    conn = call(TestPlug, [{"WRONGHEADER", "Bearer VALIDTOKEN"}])
 
     assert conn.state == :sent
     assert conn.status == 401

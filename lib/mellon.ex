@@ -85,7 +85,7 @@ defmodule Mellon do
   end
 
   defp decode_token({conn, []}), do: {conn, nil}
-  defp decode_token({conn, ["Token: " <> encoded_token | _]}) do
+  defp decode_token({conn, ["Bearer " <> encoded_token | _]}) do
     {conn, encoded_token}
   end
   defp decode_token({conn, [_token]}), do: {conn, nil}
